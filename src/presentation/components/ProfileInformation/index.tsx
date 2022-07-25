@@ -1,39 +1,23 @@
 import { Avatar, Box, Text } from "@chakra-ui/react";
+import { UserData } from "../../../modules/user/domain/UserData";
+import InformationLabel from "./InformationLabel";
 
-type Props = {};
+type Props = {
+    userData: UserData;
+};
 
-export default function ProfileInformation({}: Props) {
+export default function ProfileInformation({ userData }: Props) {
     return (
         <Box mt={10}>
-            <Avatar name="Profile" src="https://github.com/gstcarv.png" size={"2xl"} />
+            <Avatar name="Profile" src={userData.avatarUrl} size={"2xl"} />
 
-            <Box mt={5}>
-                <Text fontSize="sm" fontWeight={"bold"}>
-                    Name
-                </Text>
-                <Text fontSize="lg">Gustavo Carvalho</Text>
-            </Box>
+            <InformationLabel title="Name">{userData.name}</InformationLabel>
 
-            <Box mt={5}>
-                <Text fontSize="sm" fontWeight={"bold"}>
-                    Company
-                </Text>
-                <Text fontSize="lg">Gustavo Carvalho</Text>
-            </Box>
+            <InformationLabel title="Description">{userData.description}</InformationLabel>
 
-            <Box mt={5}>
-                <Text fontSize="sm" fontWeight={"bold"}>
-                    Location
-                </Text>
-                <Text fontSize="lg">Gustavo Carvalho</Text>
-            </Box>
+            <InformationLabel title="Location">{userData.location}</InformationLabel>
 
-            <Box mt={5}>
-                <Text fontSize="sm" fontWeight={"bold"}>
-                    Blog
-                </Text>
-                <Text fontSize="lg">Gustavo Carvalho</Text>
-            </Box>
+            <InformationLabel title="Company">{userData.company}</InformationLabel>
         </Box>
     );
 }
