@@ -1,15 +1,12 @@
-import "../modules/auth/AuthModule";
-import { AuthModule } from "../modules/auth/AuthModule";
-import { AuthDataSource } from "../modules/auth/domain/AuthDataSource";
-import { setup } from "./contexts/ModuleProvider/withModule";
-import { useProvider } from "./hooks/useProvider";
-
-const withAuthModule = setup(AuthModule);
+import { ChakraProvider } from "@chakra-ui/react";
+import AppRoutes from "./config/routes/AppRoutes";
 
 function App() {
-    const authDataSource = useProvider(AuthDataSource);
-
-    return <div className="App"></div>;
+    return (
+        <ChakraProvider>
+            <AppRoutes />
+        </ChakraProvider>
+    );
 }
 
-export default withAuthModule(App);
+export default App;
