@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { HttpClient, HttpGetParams } from "../../common/http/HttpClient";
 import { HttpResponse } from "../../common/http/HttpResponse";
 import { Provider } from "../../core/injector/Provider";
