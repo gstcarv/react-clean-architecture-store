@@ -10,7 +10,7 @@ export function useProvider<T extends ProviderClassReference>(providerClass: T) 
         throw new Error(`Cannot inject ${providerClass.name} because the module was not found. Make sure that your Component is being encapsulated no withModule`);
     }
 
-    const provider: InstanceType<T> = useMemo(() => ProviderInjector.from(module!).get(providerClass), [module]);
+    const provider: InstanceType<T> = useMemo(() => ProviderInjector.from(module!).get(providerClass), [module, providerClass]);
 
     return provider;
 }

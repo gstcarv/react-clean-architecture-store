@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { ClassReference } from "../../common/types/ClassReference";
 import { injectable } from "inversify";
 

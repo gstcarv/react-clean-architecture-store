@@ -1,4 +1,4 @@
-import { Avatar, Box, Text } from "@chakra-ui/react";
+import { Avatar, Box } from "@chakra-ui/react";
 import { UserData } from "../../../modules/user/domain/UserData";
 import InformationLabel from "./InformationLabel";
 

@@ -9,9 +9,9 @@ export class UserService implements UserDataSource {
     constructor(private httpClient: HttpClient) {}
 
     async getByProfile(profileId: string): Promise<UserData> {
-        const loginFetch = await this.httpClient.get<UserFetchResult>(`/users/${profileId}`);
+        const userFetch = await this.httpClient.get<UserFetchResult>(`/users/${profileId}`);
 
-        const { avatar_url, bio, company, location, name } = loginFetch.data;
+        const { avatar_url, bio, company, location, name } = userFetch.data;
 
         return {
             avatarUrl: avatar_url,
