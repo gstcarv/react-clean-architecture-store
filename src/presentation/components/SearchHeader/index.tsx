@@ -43,8 +43,8 @@ export default function SearchHeader({ onDataFetched, onFetchError }: Props) {
                 }}
             >
                 <FormControl>
-                    <FormLabel>Github Profile</FormLabel>
-                    <Input placeholder="Enter user's id to get profile information" ref={profileFieldRef} />
+                    <FormLabel htmlFor="profileId">Github Profile</FormLabel>
+                    <Input id="profileId" placeholder="Enter user's id to get profile information" ref={profileFieldRef} />
                 </FormControl>
 
                 <Button mt={4} colorScheme="teal" type="submit" isLoading={isLoading}>
