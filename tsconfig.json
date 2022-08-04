@@ -15,13 +15,7 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "react-jsx",
-        "plugins": [
-            {
-                "transform": "ts-auto-mock/transformer",
-                "cacheBetweenTests": false
-            }
-        ]
+        "jsx": "react-jsx"
     },
     "include": ["src"]
 }

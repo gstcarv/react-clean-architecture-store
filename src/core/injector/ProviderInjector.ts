@@ -4,15 +4,17 @@ import { ClassReference, ProviderClassReference } from "../../common/types/Class
 import { ProviderConfig } from "../../common/types/ProviderConfig";
 import { checkIfProvider } from "./providerUtils";
 import { moduleInstance } from "../moduler/Module";
+import { InvalidModuleError } from "../errors/InvalidModuleError";
+import { InvalidProviderError } from "../errors/InvalidProviderError";
 
 export class ProviderInjector implements Injector {
     constructor(private container: Container = new Container()) {}
 
-    static from<T>(providerClass: ClassReference<T>): ProviderInjector {
-        const injectorInstance: ProviderInjector = Reflect.getMetadata(moduleInstance, providerClass);
+    static from<T>(moduleClass: ClassReference<T>): ProviderInjector {
+        const injectorInstance: ProviderInjector = Reflect.getMetadata(moduleInstance, moduleClass);
 
         if (!injectorInstance) {
-            throw new Error(`${providerClass.name} is not a Module. Make sure that its class declaration has @Module decorator`);
+            throw new InvalidModuleError(moduleClass);
         }
 
         return injectorInstance;
@@ -28,7 +30,7 @@ export class ProviderInjector implements Injector {
 
     private bind({ provider, to }: ProviderConfig) {
         if (!checkIfProvider(to)) {
-            throw new Error(`Only implementations marked with @Provider annotation are allowed to join on a Module. Evaluating: ${to.name}`);
+            throw new InvalidProviderError(to);
         }
 
         this.container.bind(provider).to(to).inSingletonScope();
