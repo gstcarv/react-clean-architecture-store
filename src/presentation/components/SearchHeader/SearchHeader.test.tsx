@@ -2,12 +2,10 @@ import "../../config/tests/setupTests";
 import SearchHeader from ".";
 import { render } from "../../config/tests";
 import { UserModule } from "../../../modules/user/UserModule";
-import { UserDataSource } from "../../../modules/user/domain/UserDataSource";
 import { UserData } from "../../../modules/user/domain/UserData";
 import userEvent from "@testing-library/user-event";
 import { act, waitFor } from "@testing-library/react";
-import * as ProviderHook from "../../hooks/useProvider";
-import { ClassReference } from "../../../common/types/ClassReference";
+import { ProviderMock } from "../../../tests/mocks/hooks/ProviderMock";
 
 describe("<SearchHeader />", () => {
     test("It should render component correctly", () => {
@@ -29,14 +27,10 @@ describe("<SearchHeader />", () => {
             name: "mock-name",
         } as UserData);
 
-        jest.spyOn(ProviderHook, "useProvider").mockImplementation((provider): UserDataSource => {
-            if (provider === UserDataSource) {
-                return {
-                    getByProfile: mockGetByProfileFn,
-                };
-            }
-
-            return ProviderHook.useProvider(provider);
+        ProviderMock.use({
+            UserDataSource: {
+                getByProfile: mockGetByProfileFn,
+            },
         });
 
         const { getByLabelText, getByRole } = render(<SearchHeader onDataFetched={mockOnDataFetchedFn} onFetchError={jest.fn} />, {
@@ -72,14 +66,10 @@ describe("<SearchHeader />", () => {
         const mockOnFetchErrorFn = jest.fn();
         const mockGetByProfileFn = jest.fn().mockRejectedValue({});
 
-        jest.spyOn(ProviderHook, "useProvider").mockImplementation((provider): UserDataSource => {
-            if (provider === UserDataSource) {
-                return {
-                    getByProfile: mockGetByProfileFn,
-                };
-            }
-
-            return ProviderHook.useProvider(provider);
+        ProviderMock.use({
+            UserDataSource: {
+                getByProfile: mockGetByProfileFn,
+            },
         });
 
         const { getByLabelText, getByRole } = render(<SearchHeader onDataFetched={jest.fn} onFetchError={mockOnFetchErrorFn} />, {
@@ -97,6 +87,7 @@ describe("<SearchHeader />", () => {
 
         await waitFor(() => {
             expect(mockOnFetchErrorFn).toHaveBeenCalledTimes(1);
+            expect(mockGetByProfileFn).toHaveBeenCalledTimes(1);
         });
     });
 });
