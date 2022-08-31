@@ -3,6 +3,7 @@ import { UserService } from "../UserService";
 import { UserData } from "../../domain/UserData";
 import { HttpResponse } from "../../../../common/http/HttpResponse";
 import { MockHttpClient } from "../../../../tests/mocks/http/MockHttpClient";
+import { MockUserData } from "../../../../tests/mocks/models/user/MockUserData";
 
 describe("UserService", () => {
     let httpClientMock: jest.Mocked<HttpClient>;
@@ -20,13 +21,7 @@ describe("UserService", () => {
     describe("getByProfile", () => {
         test("it should return user information when success", async () => {
             const userResponseMock: HttpResponse<UserData> = {
-                data: {
-                    avatarUrl: "mock-url",
-                    company: "mock-company",
-                    description: "mock-description",
-                    location: "mock-location",
-                    name: "mock-name",
-                },
+                data: new MockUserData().create(),
                 statusCode: 200,
             };
 

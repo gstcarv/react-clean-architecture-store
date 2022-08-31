@@ -6,8 +6,11 @@ import { UserData } from "../../../modules/user/domain/UserData";
 import userEvent from "@testing-library/user-event";
 import { act, waitFor } from "@testing-library/react";
 import { ProviderMock } from "../../../tests/mocks/hooks/ProviderMock";
+import { MockUserData } from "../../../tests/mocks/models/user/MockUserData";
 
 describe("<SearchHeader />", () => {
+    const mockUserData = new MockUserData().create();
+
     test("It should render component correctly", () => {
         const { getByText } = render(<SearchHeader onDataFetched={jest.fn} onFetchError={jest.fn} />, {
             module: UserModule,
@@ -19,13 +22,7 @@ describe("<SearchHeader />", () => {
     test("It should get profile data on type search field", async () => {
         const mockOnDataFetchedFn = jest.fn();
 
-        const mockGetByProfileFn = jest.fn().mockResolvedValue({
-            avatarUrl: "mock-url",
-            company: "mock-company",
-            description: "mock-description",
-            location: "mock-location",
-            name: "mock-name",
-        } as UserData);
+        const mockGetByProfileFn = jest.fn().mockResolvedValue(mockUserData);
 
         ProviderMock.use({
             UserDataSource: {
@@ -53,13 +50,7 @@ describe("<SearchHeader />", () => {
             });
         });
 
-        expect(mockOnDataFetchedFn).toHaveBeenCalledWith({
-            avatarUrl: "mock-url",
-            company: "mock-company",
-            description: "mock-description",
-            location: "mock-location",
-            name: "mock-name",
-        });
+        expect(mockOnDataFetchedFn).toHaveBeenCalledWith(mockUserData);
     });
 
     test("It should call onFetchError on error fetching user", async () => {
@@ -89,5 +80,21 @@ describe("<SearchHeader />", () => {
             expect(mockOnFetchErrorFn).toHaveBeenCalledTimes(1);
             expect(mockGetByProfileFn).toHaveBeenCalledTimes(1);
         });
+    });
+
+    test("It should not allow to submit if no profile provided", async () => {
+        const mockOnDataFetchedFn = jest.fn();
+
+        const { getByLabelText, getByRole } = render(<SearchHeader onDataFetched={mockOnDataFetchedFn} onFetchError={jest.fn} />, {
+            module: UserModule,
+        });
+
+        const searchButton = getByRole("button", {
+            name: /Search Profile/i,
+        });
+
+        userEvent.click(searchButton);
+
+        expect(mockOnDataFetchedFn).not.toHaveBeenCalledWith(mockUserData);
     });
 });

@@ -8,8 +8,8 @@ type RenderOptions = {
     module?: ClassReference;
 };
 
-export function render(element: ReactElement<any, any>, options: RenderOptions) {
-    if (options.module) {
+export function render(element: ReactElement<any, any>, options?: RenderOptions) {
+    if (options?.module) {
         const WithModule = withModule(options.module)(() => element);
 
         return defaultRender(<WithModule />);

@@ -9,4 +9,10 @@ describe("<InformationLabel />", () => {
         expect(getByText("mock-content")).toBeInTheDocument();
         expect(getByText("mock-title")).toBeInTheDocument();
     });
+
+    test("It should render '-' if on children is empty", () => {
+        const { getByText } = render(<InformationLabel title="mock-title" children={""} />);
+
+        expect(getByText("-")).toBeInTheDocument();
+    });
 });

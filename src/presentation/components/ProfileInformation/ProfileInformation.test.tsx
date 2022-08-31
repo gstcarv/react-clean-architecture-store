@@ -2,16 +2,11 @@ import "../../config/tests/setupTests";
 import { render } from "@testing-library/react";
 import ProfileInformation from ".";
 import { UserData } from "../../../modules/user/domain/UserData";
+import { MockUserData } from "../../../tests/mocks/models/user/MockUserData";
 
 describe("<ProfileInformation />", () => {
     test("It should render correctly", () => {
-        const mockUserData: UserData = {
-            avatarUrl: "mock-url",
-            company: "mock-company",
-            description: "mock-description",
-            location: "mock-location",
-            name: "mock-name",
-        };
+        const mockUserData = new MockUserData().create();
 
         const { getByText } = render(<ProfileInformation userData={mockUserData} />);
 
