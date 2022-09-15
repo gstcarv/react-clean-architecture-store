@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { HttpClient, HttpGetParams } from "../../common/http/HttpClient";
 import { HttpResponse } from "../../common/http/HttpResponse";
-import { Provider } from "../../core/injector/Provider";
+import { Provider } from "../../lib/injector/Provider";
 
 @Provider()
 export class AxiosHttpClient implements HttpClient {

@@ -1,12 +1,12 @@
-import "../../../modules/AppModule";
+import "../../../../modules/AppModule";
 import { renderHook } from "@testing-library/react-hooks";
-import { ModuleNotFoundError } from "../../../core/errors/ModuleNotFoundError";
-import { UserDataSource } from "../../../modules/user/domain/UserDataSource";
-import { UserModule } from "../../../modules/user/UserModule";
-import withModule from "../../contexts/ModuleProvider/withModule";
+import { ModuleNotFoundError } from "../../../../lib/errors/ModuleNotFoundError";
+import { UserDataSource } from "../../../../modules/user/domain/UserDataSource";
+import { UserModule } from "../../../../modules/user/UserModule";
+import withModule from "../../../contexts/ModuleProvider/withModule";
 import { useProvider } from "../useProvider";
-import { AppModule } from "../../../modules/AppModule";
-import { HttpClient } from "../../../common/http/HttpClient";
+import { AppModule } from "../../../../modules/AppModule";
+import { HttpClient } from "../../../../common/http/HttpClient";
 
 describe("useProvider", () => {
     test("It should return correct implementation when UserDataSource abstraction provided on params", () => {

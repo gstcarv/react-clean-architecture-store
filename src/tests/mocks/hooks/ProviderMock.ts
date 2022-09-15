@@ -1,5 +1,5 @@
 import { UserDataSource } from "../../../modules/user/domain/UserDataSource";
-import * as ProviderHook from "../../../presentation/hooks/useProvider";
+import * as ProviderHook from "../../../presentation/hooks/lib/useProvider";
 
 const providerNamesMap = {
     UserDataSource,

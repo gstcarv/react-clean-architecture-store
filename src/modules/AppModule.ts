@@ -1,5 +1,5 @@
 import { HttpClient } from "../common/http/HttpClient";
-import { Module } from "../core/moduler/Module";
+import { Module } from "../lib/moduler/Module";
 import { AxiosHttpClient } from "../infra/http/AxiosHttpClient";
 
 @Module({

@@ -1,5 +1,5 @@
 import { HttpClient } from "../../../common/http/HttpClient";
-import { Provider } from "../../../core/injector/Provider";
+import { Provider } from "../../../lib/injector/Provider";
 import { UserData } from "../domain/UserData";
 import { UserDataSource } from "../domain/UserDataSource";
 import { UserFetchResult } from "../domain/UserFetchResult";
