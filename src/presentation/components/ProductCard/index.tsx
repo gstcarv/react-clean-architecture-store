@@ -1,6 +1,6 @@
 import { Flex, Box, Image } from '@chakra-ui/react';
 import { ProductInfo } from '../../../modules/product/domain/models/ProductInfo';
-import AddToCardButton from './AddToCardButton';
+import AddToCartButton from './AddToCartButton';
 
 type Props = {
     product: ProductInfo;
@@ -24,7 +24,7 @@ function ProductCard({ product }: Props) {
                         </Box>
                     </Box>
 
-                    <AddToCardButton product={product} />
+                    <AddToCartButton product={product} />
                 </Flex>
             </Box>
         </Box>

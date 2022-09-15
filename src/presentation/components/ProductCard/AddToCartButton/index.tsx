@@ -7,7 +7,7 @@ type Props = {
     product: ProductInfo;
 };
 
-const AddToCardButton = ({ product }: Props) => {
+const AddToCartButton = ({ product }: Props) => {
     const cartContext = useCart();
 
     const productInCart = cartContext.cart.some((p) => p.id === product.id);
@@ -27,4 +27,4 @@ const AddToCardButton = ({ product }: Props) => {
     );
 };
 
-export default AddToCardButton;
+export default AddToCartButton;
