@@ -1,4 +1,4 @@
-import { ClassReference, ProviderClassReference } from "./ClassReference";
+import { ClassReference, ProviderClassReference } from './ClassReference';
 
 export type ProviderConfig<T = unknown> = {
     provider: ProviderClassReference;

@@ -1,14 +1,16 @@
-import "reflect-metadata";
-import { Container } from "inversify";
-import { ClassReference, ProviderClassReference } from "../../common/types/ClassReference";
-import { ProviderConfig } from "../../common/types/ProviderConfig";
-import { checkIfProvider } from "./providerUtils";
-import { moduleInstance } from "../moduler/Module";
-import { InvalidModuleError } from "../errors/InvalidModuleError";
-import { InvalidProviderError } from "../errors/InvalidProviderError";
+import 'reflect-metadata';
+import { Container } from 'inversify';
+import { ClassReference, ProviderClassReference } from '../../common/types/ClassReference';
+import { ProviderConfig } from '../../common/types/ProviderConfig';
+import { checkIfProvider } from './providerUtils';
+import { moduleInstance } from '../moduler/Module';
+import { InvalidModuleError } from '../errors/InvalidModuleError';
+import { InvalidProviderError } from '../errors/InvalidProviderError';
 
 export class ProviderInjector implements Injector {
     constructor(private container: Container = new Container()) {}
+
+    private bindedServices: ProviderConfig[] = [];
 
     static from<T>(moduleClass: ClassReference<T>): ProviderInjector {
         const injectorInstance: ProviderInjector = Reflect.getMetadata(moduleInstance, moduleClass);
@@ -33,12 +35,20 @@ export class ProviderInjector implements Injector {
             throw new InvalidProviderError(to);
         }
 
+        this.bindedServices.push({ provider, to });
         this.container.bind(provider).to(to).inSingletonScope();
     }
 
     createChild(): ProviderInjector {
         const child = this.container.createChild();
         return new ProviderInjector(child);
+    }
+
+    mergeModules(...modules: ClassReference<any>[]) {
+        modules.forEach((moduleClass) => {
+            const moduleInstance = ProviderInjector.from(moduleClass);
+            this.register(...moduleInstance.bindedServices);
+        });
     }
 }
 
@@ -51,4 +61,5 @@ export abstract class Injector {
 
     abstract get: <T extends ProviderClassReference>(providerClass: T) => T;
     abstract register: (...providers: ProviderConfig[]) => void;
+    abstract mergeModules: (...modules: ClassReference[]) => void;
 }
