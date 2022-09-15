@@ -10,4 +10,12 @@ export class ProductInfoMock {
             ...product,
         };
     }
+
+    static createList(): ProductInfo[] {
+        return [
+            ProductInfoMock.create(),
+            ProductInfoMock.create({ id: 'mock-2' }),
+            ProductInfoMock.create({ id: 'mock-2' }),
+        ];
+    }
 }
