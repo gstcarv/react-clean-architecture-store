@@ -1,0 +1,184 @@
+{
+    "products": [
+        {
+            "id": "4d8b2db4-a62c-4363-bbb1-51f52814aae2",
+            "name": "Foam Dinner Plate",
+            "photoUrl": "https://picsum.photos/id/418/400/300",
+            "price": 9.72
+        },
+        {
+            "id": "74b63e4c-15dc-414e-8dae-7a3f5f0a9543",
+            "name": "Tea - Herbal Sweet Dreams",
+            "photoUrl": "https://picsum.photos/id/222/400/300",
+            "price": 15.84
+        },
+        {
+            "id": "a2d775b7-2cfa-4a57-a19e-9dc31327e083",
+            "name": "Juice - Lagoon Mango",
+            "photoUrl": "https://picsum.photos/id/310/400/300",
+            "price": 16.48
+        },
+        {
+            "id": "6d549c40-a19a-43c6-abf2-486fbecaf8e5",
+            "name": "Sterno - Chafing Dish Fuel",
+            "photoUrl": "https://picsum.photos/id/200/400/300",
+            "price": 1.7
+        },
+        {
+            "id": "d48bf2ef-1c1c-4f52-8ac2-cac4c4255174",
+            "name": "Pasta - Penne, Rigate, Dry",
+            "photoUrl": "https://picsum.photos/id/320/400/300",
+            "price": 16.44
+        },
+        {
+            "id": "c1874c6c-be53-456c-ae22-eb330269e108",
+            "name": "Rye Special Old",
+            "photoUrl": "https://picsum.photos/id/158/400/300",
+            "price": 18.73
+        },
+        {
+            "id": "0ce94998-9513-4009-91bb-93b1a9ec651d",
+            "name": "Icecream - Dstk Super Cone",
+            "photoUrl": "https://picsum.photos/id/418/400/300",
+            "price": 17.41
+        },
+        {
+            "id": "b27cef09-584a-4d72-bb26-f689d563bd3e",
+            "name": "Syrup - Golden, Lyles",
+            "photoUrl": "https://picsum.photos/id/172/400/300",
+            "price": 6.95
+        },
+        {
+            "id": "10dd3b0c-6dad-4d4a-bcd6-15688be64ab6",
+            "name": "Yogurt - Banana, 175 Gr",
+            "photoUrl": "https://picsum.photos/id/301/400/300",
+            "price": 19.07
+        },
+        {
+            "id": "b63d1e55-6ae7-421b-9879-fd2a5eadc41d",
+            "name": "Onion - Dried",
+            "photoUrl": "https://picsum.photos/id/340/400/300",
+            "price": 7.17
+        },
+        {
+            "id": "8c7c6aa8-ba0c-493b-a5d4-2bcc63670636",
+            "name": "Curry Powder Madras",
+            "photoUrl": "https://picsum.photos/id/334/400/300",
+            "price": 17.59
+        },
+        {
+            "id": "f60d8465-184c-4188-bf40-aba6b85e7bee",
+            "name": "Emulsifier",
+            "photoUrl": "https://picsum.photos/id/446/400/300",
+            "price": 6.13
+        },
+        {
+            "id": "0ef7eb2d-5c22-4e25-8e3a-4742f1e7eb99",
+            "name": "Bandage - Finger Cots",
+            "photoUrl": "https://picsum.photos/id/338/400/300",
+            "price": 9.09
+        },
+        {
+            "id": "33f99a35-9815-4d62-9fb4-5f81f56e22f8",
+            "name": "Champagne - Brights, Dry",
+            "photoUrl": "https://picsum.photos/id/321/400/300",
+            "price": 17.57
+        },
+        {
+            "id": "a2d6e72c-4f25-4058-b441-50b9fe1d9708",
+            "name": "Wine - Chianti Classica Docg",
+            "photoUrl": "https://picsum.photos/id/441/400/300",
+            "price": 3.63
+        },
+        {
+            "id": "c4b7b5af-6c76-4fe3-aee0-2e6d787a193e",
+            "name": "Wine - Riesling Dr. Pauly",
+            "photoUrl": "https://picsum.photos/id/404/400/300",
+            "price": 8.31
+        },
+        {
+            "id": "7116b86c-2436-40e5-ba9e-58c19d77c45a",
+            "name": "Sauce - Demi Glace",
+            "photoUrl": "https://picsum.photos/id/384/400/300",
+            "price": 6.1
+        },
+        {
+            "id": "3ccc8f04-7991-4c73-ab51-9d64bbb45d2b",
+            "name": "Nori Sea Weed - Gold Label",
+            "photoUrl": "https://picsum.photos/id/382/400/300",
+            "price": 18.37
+        },
+        {
+            "id": "afadb900-012e-4dde-8af3-aa3baae4a48e",
+            "name": "Bread Base - Goodhearth",
+            "photoUrl": "https://picsum.photos/id/202/400/300",
+            "price": 18.44
+        },
+        {
+            "id": "af2ca545-f1fd-4bc8-8e41-6b123028dfdd",
+            "name": "Bols Melon Liqueur",
+            "photoUrl": "https://picsum.photos/id/302/400/300",
+            "price": 5.54
+        },
+        {
+            "id": "4356b8cf-8612-4df9-8cb6-9d13b5a3a3fd",
+            "name": "Eggplant Italian",
+            "photoUrl": "https://picsum.photos/id/320/400/300",
+            "price": 14.79
+        },
+        {
+            "id": "7169edcd-52db-4547-8f8f-0d32e87748f4",
+            "name": "Cheese - Swiss Sliced",
+            "photoUrl": "https://picsum.photos/id/418/400/300",
+            "price": 1.7
+        },
+        {
+            "id": "20494632-52eb-4bd2-ac16-3ddc31cd978b",
+            "name": "Lime Cordial - Roses",
+            "photoUrl": "https://picsum.photos/id/137/400/300",
+            "price": 7.62
+        },
+        {
+            "id": "0039fd0e-6b8f-402d-af1a-4e796351d77d",
+            "name": "Muffin - Bran Ind Wrpd",
+            "photoUrl": "https://picsum.photos/id/328/400/300",
+            "price": 4.47
+        },
+        {
+            "id": "0a7d2f6b-0288-4b98-9041-d165de7d527d",
+            "name": "Bread - Mini Hamburger Bun",
+            "photoUrl": "https://picsum.photos/id/408/400/300",
+            "price": 18.95
+        },
+        {
+            "id": "81db8f4b-71d4-4745-969b-5e3d3581210f",
+            "name": "Parsley Italian - Fresh",
+            "photoUrl": "https://picsum.photos/id/100/400/300",
+            "price": 11.98
+        },
+        {
+            "id": "1447c521-0963-48f4-bb27-de50a93e39a9",
+            "name": "Island Oasis - Ice Cream Mix",
+            "photoUrl": "https://picsum.photos/id/418/400/300",
+            "price": 6.07
+        },
+        {
+            "id": "77a73fb4-459b-4570-9f2a-cdfbd1a7d399",
+            "name": "Bread - Dark Rye",
+            "photoUrl": "https://picsum.photos/id/434/400/300",
+            "price": 12.97
+        },
+        {
+            "id": "4eb14ed0-3a46-459d-86eb-5fe4af1841f1",
+            "name": "Chevere Logs",
+            "photoUrl": "https://picsum.photos/id/347/400/300",
+            "price": 2.5
+        },
+        {
+            "id": "7173ab1f-a939-4770-9adb-2de32ebeb9e3",
+            "name": "Isomalt",
+            "photoUrl": "https://picsum.photos/id/405/400/300",
+            "price": 8.29
+        }
+    ]
+}
