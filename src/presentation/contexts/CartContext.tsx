@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { CartModule } from '../../modules/cart/CartModule';
 import { CartManager } from '../../modules/cart/domain/CartManager';
 import { ProductInfo } from '../../modules/product/domain/models/ProductInfo';
@@ -15,6 +15,10 @@ const CartContext = createContext<CartContextType>({} as CartContextType);
 export const Provider = (props: PropsWithChildren) => {
     const [cart, setCart] = useState<ProductInfo[]>([]);
     const cartManager = useProvider(CartManager, CartModule);
+
+    useEffect(() => {
+        setCart(cartManager.getAll());
+    }, []);
 
     return (
         <CartContext.Provider
