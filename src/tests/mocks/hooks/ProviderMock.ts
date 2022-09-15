@@ -1,9 +1,6 @@
-import { UserDataSource } from "../../../modules/user/domain/UserDataSource";
-import * as ProviderHook from "../../../presentation/hooks/lib/useProvider";
+import * as ProviderHook from '../../../presentation/hooks/lib/useProvider';
 
-const providerNamesMap = {
-    UserDataSource,
-} as const;
+const providerNamesMap = {} as const;
 
 type ProviderName = keyof typeof providerNamesMap;
 
@@ -13,7 +10,7 @@ type MockProviderOptions = {
 
 export const ProviderMock = {
     use: (options: MockProviderOptions) => {
-        return jest.spyOn(ProviderHook, "useProvider").mockImplementation((provider): UserDataSource => {
+        return jest.spyOn(ProviderHook, 'useProvider').mockImplementation((provider) => {
             for (let providerName in options) {
                 if (provider.name === providerName) {
                     return options[providerName as ProviderName] as any;
