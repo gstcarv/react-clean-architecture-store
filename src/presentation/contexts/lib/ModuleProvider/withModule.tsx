@@ -1,13 +1,13 @@
-import { ComponentType, useContext } from "react";
-import { ModuleContext } from ".";
-import { ClassReference } from "../../../common/types/ClassReference";
+import { ComponentType, useContext } from 'react';
+import { ModuleContext } from '.';
+import { ClassReference } from '../../../../common/types/ClassReference';
 
 export default function withModule(module: ClassReference<any>) {
     return function <P>(Component: ComponentType<P>) {
         const WithModule = (props: P) => {
             return (
                 <ModuleContext.Provider value={module}>
-                    <Component {...props} />
+                    <Component {...props!} />
                 </ModuleContext.Provider>
             );
         };

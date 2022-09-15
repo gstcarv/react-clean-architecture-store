@@ -1,15 +1,18 @@
-import { useMemo } from "react";
-import { ProviderClassReference } from "../../../common/types/ClassReference";
-import { ModuleNotFoundError } from "../../../lib/errors/ModuleNotFoundError";
-import { ProviderInjector } from "../../../lib/injector/ProviderInjector";
-import { useModule } from "../../contexts/ModuleProvider/withModule";
+import { useMemo } from 'react';
+import { ClassReference, ProviderClassReference } from '../../../common/types/ClassReference';
+import { ModuleNotFoundError } from '../../../lib/errors/ModuleNotFoundError';
+import { ProviderInjector } from '../../../lib/injector/ProviderInjector';
+import { useModule } from '../../contexts/lib/ModuleProvider/withModule';
 
-export function useProvider<T extends ProviderClassReference>(providerClass: T) {
+export function useProvider<T extends ProviderClassReference>(providerClass: T, fromModule?: ClassReference) {
     const module = useModule();
 
-    if (!module) throw new ModuleNotFoundError(providerClass);
+    if (!module && !fromModule) throw new ModuleNotFoundError(providerClass);
 
-    const provider: InstanceType<T> = useMemo(() => ProviderInjector.from(module!).get(providerClass), [module, providerClass]);
+    const provider: InstanceType<T> = useMemo(
+        () => ProviderInjector.from(fromModule || module!).get(providerClass),
+        [module, providerClass]
+    );
 
     return provider;
 }

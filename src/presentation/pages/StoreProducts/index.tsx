@@ -1,7 +1,8 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
+import { ProductInfo } from '../../../modules/product/domain/models/ProductInfo';
 import { ProductModule } from '../../../modules/product/ProductModule';
 import { ProductCard } from '../../components/ProductCard';
-import withModule from '../../contexts/ModuleProvider/withModule';
+import withModule from '../../contexts/lib/ModuleProvider/withModule';
 import { useProducts } from '../../hooks/domain/product/useProduct';
 
 const withProductsModule = withModule(ProductModule);

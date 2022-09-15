@@ -1,10 +1,13 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import AppRoutes from "./config/routes/AppRoutes";
+import { ChakraProvider } from '@chakra-ui/react';
+import AppRoutes from './config/routes/AppRoutes';
+import { CartProvider } from './contexts/CartContext';
 
 function App() {
     return (
         <ChakraProvider>
-            <AppRoutes />
+            <CartProvider>
+                <AppRoutes />
+            </CartProvider>
         </ChakraProvider>
     );
 }

@@ -1,8 +1,8 @@
-import { render as defaultRender } from "@testing-library/react";
-import { ReactElement } from "react";
-import { ClassReference } from "../../../common/types/ClassReference";
-import withModule from "../../contexts/ModuleProvider/withModule";
-import "../../../modules/AppModule";
+import { render as defaultRender } from '@testing-library/react';
+import { ReactElement } from 'react';
+import { ClassReference } from '../../../common/types/ClassReference';
+import withModule from '../../contexts/lib/ModuleProvider/withModule';
+import '../../../modules/AppModule';
 
 type RenderOptions = {
     module?: ClassReference;

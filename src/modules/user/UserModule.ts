@@ -1,6 +1,6 @@
-import { Module } from "../../lib/moduler/Module";
-import { UserService } from "./data/UserService";
-import { UserDataSource } from "./domain/UserDataSource";
+import { Module } from '../../lib/moduler/Module';
+import { UserService } from './data/UserService';
+import { UserDataSource } from './domain/UserDataSource';
 
 @Module({
     providers: [{ provider: UserDataSource, to: UserService }],

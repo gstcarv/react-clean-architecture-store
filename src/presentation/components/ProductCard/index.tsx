@@ -1,6 +1,6 @@
-import { Flex, Box, Image, Icon, chakra } from '@chakra-ui/react';
-import { FiShoppingCart } from 'react-icons/fi';
+import { Flex, Box, Image } from '@chakra-ui/react';
 import { ProductInfo } from '../../../modules/product/domain/models/ProductInfo';
+import AddToCardButton from './AddToCardButton';
 
 type Props = {
     product: ProductInfo;
@@ -23,9 +23,8 @@ function ProductCard({ product }: Props) {
                             {product.price.toFixed(2)}
                         </Box>
                     </Box>
-                    <chakra.a href={'#'} display={'flex'}>
-                        <Icon as={FiShoppingCart} h={5} w={5} alignSelf={'center'} />
-                    </chakra.a>
+
+                    <AddToCardButton product={product} />
                 </Flex>
             </Box>
         </Box>
