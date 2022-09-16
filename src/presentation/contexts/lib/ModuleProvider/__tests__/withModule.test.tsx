@@ -1,25 +1,24 @@
-import { renderHook } from '@testing-library/react-hooks';
 import { setup } from '../withModule';
-import { UserModule } from '../../../../../modules/user/UserModule';
 import { useProvider } from '../../../../hooks/lib/useProvider';
-import { UserDataSource } from '../../../../../modules/user/domain/UserDataSource';
 import { render } from '@testing-library/react';
 import '../../../../../modules/AppModule';
+import { ProductDataSource } from '../../../../../modules/product/domain/ProductDataSource';
+import { ProductModule } from '../../../../../modules/product/ProductModule';
 
 describe('useProvider', () => {
     test('setup should wrap component within a module', () => {
-        let userDataSource: UserDataSource;
+        let productDataSource: ProductDataSource;
 
         const MockComponent = () => {
-            const provider = useProvider(UserDataSource);
-            userDataSource = provider;
+            const provider = useProvider(ProductDataSource);
+            productDataSource = provider;
             return null;
         };
 
-        const WrapperComponent = setup(UserModule)(MockComponent);
+        const WrapperComponent = setup(ProductModule)(MockComponent);
 
         render(<WrapperComponent />);
 
-        expect(userDataSource!.getByProfile).toBeInstanceOf(Function);
+        expect(productDataSource!.getAll).toBeInstanceOf(Function);
     });
 });

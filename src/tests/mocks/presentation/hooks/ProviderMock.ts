@@ -1,6 +1,9 @@
-import * as ProviderHook from '../../../presentation/hooks/lib/useProvider';
+import { CartManager } from '../../../../modules/cart/domain/CartManager';
+import * as ProviderHook from '../../../../presentation/hooks/lib/useProvider';
 
-const providerNamesMap = {} as const;
+const providerNamesMap = {
+    CartManager,
+} as const;
 
 type ProviderName = keyof typeof providerNamesMap;
 

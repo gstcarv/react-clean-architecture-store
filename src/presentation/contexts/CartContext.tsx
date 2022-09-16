@@ -4,7 +4,7 @@ import { CartManager } from '../../modules/cart/domain/CartManager';
 import { ProductInfo } from '../../modules/product/domain/models/ProductInfo';
 import { useProvider } from '../hooks/lib/useProvider';
 
-type CartContextType = {
+export type CartContextType = {
     cart: ProductInfo[];
     addItem: (product: ProductInfo) => void;
     removeItem: (product: ProductInfo) => void;
@@ -16,9 +16,7 @@ export const Provider = (props: PropsWithChildren) => {
     const [cart, setCart] = useState<ProductInfo[]>([]);
     const cartManager = useProvider(CartManager, CartModule);
 
-    useEffect(() => {
-        setCart(cartManager.getAll());
-    }, []);
+    useEffect(() => setCart(cartManager.getAll()), []);
 
     return (
         <CartContext.Provider

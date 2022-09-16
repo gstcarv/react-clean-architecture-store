@@ -15,7 +15,7 @@ export class ProductInfoMock {
         return [
             ProductInfoMock.create(),
             ProductInfoMock.create({ id: 'mock-2' }),
-            ProductInfoMock.create({ id: 'mock-2' }),
+            ProductInfoMock.create({ id: 'mock-3' }),
         ];
     }
 }

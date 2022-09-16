@@ -1,24 +1,24 @@
 import '../../../../modules/AppModule';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { ModuleNotFoundError } from '../../../../lib/errors/ModuleNotFoundError';
-import { UserDataSource } from '../../../../modules/user/domain/UserDataSource';
-import { UserModule } from '../../../../modules/user/UserModule';
 import withModule from '../../../contexts/lib/ModuleProvider/withModule';
 import { useProvider } from '../useProvider';
 import { AppModule } from '../../../../modules/AppModule';
 import { HttpClient } from '../../../../common/http/HttpClient';
+import { ProductModule } from '../../../../modules/product/ProductModule';
+import { ProductDataSource } from '../../../../modules/product/domain/ProductDataSource';
 
 describe('useProvider', () => {
     test('It should return correct implementation when UserDataSource abstraction provided on params', () => {
         const wrapper = ({ children }: any) => <>{children}</>;
 
-        const withUserModule = withModule(UserModule)(wrapper);
+        const withUserModule = withModule(ProductModule)(wrapper);
 
-        const { result } = renderHook(() => useProvider(UserDataSource), {
+        const { result } = renderHook(() => useProvider(ProductDataSource), {
             wrapper: withUserModule,
         });
 
-        expect(result.current.getByProfile).toBeInstanceOf(Function);
+        expect(result.current.getAll).toBeInstanceOf(Function);
     });
 
     test('It should return correct implementation when HttpClient abstraction provided on params', () => {
@@ -34,7 +34,23 @@ describe('useProvider', () => {
     });
 
     test('It should thrown error if no module provided', () => {
-        const { result } = renderHook(() => useProvider(UserDataSource));
-        expect(result.error).toBeInstanceOf(ModuleNotFoundError);
+        const spyConsole = jest.spyOn(console, 'error').mockImplementation();
+
+        try {
+            const { result } = renderHook(() => {
+                useProvider(ProductDataSource, undefined);
+            });
+            expect(result.current).toBe(undefined);
+        } catch (err) {
+            expect(err).toEqual(new ModuleNotFoundError(ProductDataSource));
+        }
+
+        spyConsole.mockRestore();
+    });
+
+    test('It should allow manually pass module into parameters', () => {
+        const { result } = renderHook(() => useProvider(ProductDataSource, ProductModule));
+
+        expect(result.current.getAll).toBeInstanceOf(Function);
     });
 });

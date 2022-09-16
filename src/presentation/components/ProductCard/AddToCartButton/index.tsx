@@ -14,7 +14,7 @@ const AddToCartButton = ({ product }: Props) => {
 
     const productInCart = cartContext.cart.some((p) => p.id === product.id);
 
-    function handleAddProductToCart() {
+    function handleToggleProductFromCart() {
         if (productInCart) {
             cartContext.removeItem(product);
 
@@ -39,8 +39,14 @@ const AddToCartButton = ({ product }: Props) => {
     }
 
     return (
-        <chakra.a cursor={'pointer'} display={'flex'} onClick={handleAddProductToCart}>
-            <Icon as={!productInCart ? FiShoppingCart : FiTrash} h={5} w={5} alignSelf={'center'} />
+        <chakra.a cursor={'pointer'} display={'flex'} onClick={handleToggleProductFromCart} role='link'>
+            <Icon
+                as={!productInCart ? FiShoppingCart : FiTrash}
+                h={5}
+                w={5}
+                alignSelf={'center'}
+                data-testid={!productInCart ? 'addCartIcon' : 'removeCartIcon'}
+            />
         </chakra.a>
     );
 };
