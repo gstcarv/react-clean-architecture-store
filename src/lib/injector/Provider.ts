@@ -1,12 +1,12 @@
-import "reflect-metadata";
-import { ClassReference } from "../../common/types/ClassReference";
-import { injectable } from "inversify";
+import 'reflect-metadata';
+import { ClassReference } from '../../common/types/ClassReference';
+import { singleton } from 'tsyringe';
 
-export const isProvider = Symbol("isProvider");
+export const isProvider = Symbol('isProvider');
 
 export function Provider() {
     return <T>(target: ClassReference<T>) => {
-        injectable()(target);
+        singleton()(target);
         Reflect.defineMetadata(isProvider, true, target);
     };
 }

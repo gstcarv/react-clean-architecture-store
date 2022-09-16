@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { Container } from 'inversify';
+import { container as depsContainer, DependencyContainer, InjectionToken } from 'tsyringe';
 import { ClassReference, ProviderClassReference } from '../../common/types/ClassReference';
 import { ProviderConfig } from '../../common/types/ProviderConfig';
 import { checkIfProvider } from './providerUtils';
@@ -8,7 +8,7 @@ import { InvalidModuleError } from '../errors/InvalidModuleError';
 import { InvalidProviderError } from '../errors/InvalidProviderError';
 
 export class ProviderInjector implements Injector {
-    constructor(private container: Container = new Container()) {}
+    constructor(private container: DependencyContainer = depsContainer) {}
 
     private bindedServices: ProviderConfig[] = [];
 
@@ -23,7 +23,7 @@ export class ProviderInjector implements Injector {
     }
 
     get<T extends ProviderClassReference>(providerClass: ProviderClassReference): InstanceType<T> {
-        return this.container.get(providerClass) as InstanceType<T>;
+        return this.container.resolve(providerClass as InjectionToken<T>) as InstanceType<T>;
     }
 
     register(...providers: ProviderConfig[]) {
@@ -35,13 +35,14 @@ export class ProviderInjector implements Injector {
             throw new InvalidProviderError(to);
         }
 
+        type ClazzType = typeof to;
+
         this.bindedServices.push({ provider, to });
-        this.container.bind(provider).to(to).inSingletonScope();
+        this.container.register<ClazzType>(provider as InjectionToken<ClazzType>, { useClass: to });
     }
 
     createChild(): ProviderInjector {
-        const child = this.container.createChild();
-        return new ProviderInjector(child);
+        return new ProviderInjector(this.container);
     }
 
     mergeModules(...modules: ClassReference<any>[]) {
