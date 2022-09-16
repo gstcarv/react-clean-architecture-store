@@ -11,7 +11,7 @@ export function useProvider<T extends ProviderClassReference>(providerClass: T, 
 
     const provider: InstanceType<T> = useMemo(
         () => ProviderInjector.from(fromModule || module!).get(providerClass),
-        [module, providerClass]
+        [module, providerClass, fromModule]
     );
 
     return provider;

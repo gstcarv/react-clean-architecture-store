@@ -16,7 +16,7 @@ export const Provider = (props: PropsWithChildren) => {
     const [cart, setCart] = useState<ProductInfo[]>([]);
     const cartManager = useProvider(CartManager, CartModule);
 
-    useEffect(() => setCart(cartManager.getAll()), []);
+    useEffect(() => setCart(cartManager.getAll()), [cartManager]);
 
     return (
         <CartContext.Provider

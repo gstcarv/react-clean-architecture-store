@@ -1,5 +1,4 @@
 import { Flex } from '@chakra-ui/react';
-import { ProductInfo } from '../../../modules/product/domain/models/ProductInfo';
 import { ProductModule } from '../../../modules/product/ProductModule';
 import { ProductCard } from '../../components/ProductCard';
 import withModule from '../../contexts/lib/ModuleProvider/withModule';
