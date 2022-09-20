@@ -68,6 +68,9 @@
             "<rootDir>/src/tests",
             "<rootDir>/src/lib",
             "<rootDir>/src/presentation/config/tests"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/src/presentation/config/tests/setupTests.ts"
         ]
     }
 }
