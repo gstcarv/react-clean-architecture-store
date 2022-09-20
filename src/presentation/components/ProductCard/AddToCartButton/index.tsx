@@ -39,7 +39,15 @@ const AddToCartButton = ({ product }: Props) => {
     }
 
     return (
-        <chakra.a cursor={'pointer'} display={'flex'} onClick={handleToggleProductFromCart} role='link'>
+        <chakra.a
+            cursor={'pointer'}
+            display={'flex'}
+            onClick={handleToggleProductFromCart}
+            role='link'
+            position={'absolute'}
+            right={0}
+            mr={6}
+        >
             <Icon
                 as={!productInCart ? FiShoppingCart : FiTrash}
                 h={5}

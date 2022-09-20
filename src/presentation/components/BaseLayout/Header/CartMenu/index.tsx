@@ -13,7 +13,13 @@ function CartMenu() {
             </MenuButton>
 
             {cartContext.cart.length > 0 && (
-                <MenuList width={'400px'} maxHeight='90vh' overflowX={'auto'}>
+                <MenuList
+                    width={{
+                        md: '400px',
+                    }}
+                    maxHeight='90vh'
+                    overflowX={'auto'}
+                >
                     {cartContext.cart.map((p) => (
                         <MenuCartItem product={p} key={p.id} />
                     ))}

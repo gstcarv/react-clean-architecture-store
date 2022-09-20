@@ -53,7 +53,6 @@ describe('CartContext', () => {
             const itemToRemove = ProductInfoMock.create();
 
             cartManager.getAll.mockReturnValue([itemToRemove]);
-            ``;
             cartManager.remove.mockReturnValue([]);
 
             const cartContext = renderHook(() => useCart(), {

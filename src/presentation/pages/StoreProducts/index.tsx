@@ -10,7 +10,7 @@ const StoreProducts = () => {
     const { data: products } = useProducts();
 
     return (
-        <Flex wrap='wrap' pt={5}>
+        <Flex wrap='wrap' pt={5} justifyContent='center'>
             {products?.map((p) => (
                 <ProductCard product={p} key={p.id} />
             ))}
