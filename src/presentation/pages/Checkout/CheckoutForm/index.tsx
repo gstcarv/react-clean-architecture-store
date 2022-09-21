@@ -12,7 +12,7 @@ const CheckoutForm = () => {
 
             <CreditCardInformation />
 
-            <Button colorScheme={'blue'} size={'lg'} mt={8}>
+            <Button colorScheme={'blue'} size={'lg'} my={8}>
                 Finish checkout
             </Button>
         </Box>

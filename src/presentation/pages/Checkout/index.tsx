@@ -1,6 +1,6 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Grid, GridItem, SimpleGrid, Text } from '@chakra-ui/react';
 import CheckoutForm from './CheckoutForm';
-import { AddressInformation } from './CheckoutForm/AddressInformation';
+import CheckoutResume from './CheckoutResume';
 
 const Checkout = () => {
     return (
@@ -9,7 +9,14 @@ const Checkout = () => {
                 Checkout
             </Text>
 
-            <CheckoutForm />
+            <Grid templateColumns='repeat(8, 1fr)' gap={20}>
+                <GridItem colSpan={5}>
+                    <CheckoutForm />
+                </GridItem>
+                <GridItem colSpan={3}>
+                    <CheckoutResume />
+                </GridItem>
+            </Grid>
         </Box>
     );
 };

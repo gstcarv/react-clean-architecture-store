@@ -1,19 +1,13 @@
 import userEvent from '@testing-library/user-event';
 import mock from 'jest-mock-extended/lib/Mock';
-import { CartContextType } from '../../../../../contexts/CartContext';
-import * as CartContext from '../../../../../contexts/CartContext';
-import { render } from '../../../../../config/tests';
-import { ProductInfoMock } from '../../../../../../tests/mocks/models/product/ProductInfoMock';
+import { CartContextType } from '../../contexts/CartContext';
+import * as CartContext from '../../contexts/CartContext';
+import { render } from '../../config/tests';
+import { ProductInfoMock } from '../../../tests/mocks/models/product/ProductInfoMock';
 import MenuCartItem from '.';
-import { PropsWithChildren } from 'react';
 import { waitFor } from '@testing-library/react';
 
-jest.mock('@chakra-ui/react', () => ({
-    ...jest.requireActual('@chakra-ui/react'),
-    MenuItem: ({ children }: PropsWithChildren) => <div>{children}</div>,
-}));
-
-describe('<MenuCartItem />', () => {
+describe('<CartItemInformation />', () => {
     const cartContext = mock<CartContextType>();
 
     let spyCartContext: jest.SpyInstance<CartContextType>;
@@ -26,7 +20,7 @@ describe('<MenuCartItem />', () => {
 
     afterEach(() => spyCartContext.mockRestore());
 
-    test('it should render product cart item data correctly', async () => {
+    test('it should render product information correctly', async () => {
         const product = ProductInfoMock.create({
             price: 4.99,
             name: 'product-name',

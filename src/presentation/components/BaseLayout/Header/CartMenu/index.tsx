@@ -1,10 +1,9 @@
-import { Menu, MenuButton, Button, MenuList, Box, Text } from '@chakra-ui/react';
+import { Menu, MenuButton, Button, MenuList, Box, Text, MenuItem } from '@chakra-ui/react';
 import { BsCartFill } from 'react-icons/bs';
 import { useCart } from '../../../../contexts/CartContext';
-import MenuCartItem from './MenuCartItem';
 import { BsBasket } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import CartItemInformation from '../../../CartItemInformation';
 
 function CartMenu() {
     const cartContext = useCart();
@@ -30,7 +29,9 @@ function CartMenu() {
                     )}
 
                     {cartContext.cart.map((p) => (
-                        <MenuCartItem product={p} key={p.id} />
+                        <MenuItem h='130px' data-testid='cartItem' key={p.id}>
+                            <CartItemInformation product={p} />
+                        </MenuItem>
                     ))}
                 </Box>
 

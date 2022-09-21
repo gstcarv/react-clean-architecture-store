@@ -1,14 +1,13 @@
-import { MenuItem, Image, Text, Box, Flex } from '@chakra-ui/react';
-import { useCart } from '../../../../../contexts/CartContext';
-import { Icon, chakra } from '@chakra-ui/react';
+import { Flex, chakra, Icon, Image, Text, Box } from '@chakra-ui/react';
 import { FiTrash } from 'react-icons/fi';
-import { ProductInfo } from '../../../../../../modules/product/domain/models/ProductInfo';
+import { ProductInfo } from '../../../modules/product/domain/models/ProductInfo';
+import { useCart } from '../../contexts/CartContext';
 
 type Props = {
     product: ProductInfo;
 };
 
-function MenuCartItem({ product, product: { name, photoUrl, price } }: Props) {
+const CartItemInformation = ({ product, product: { name, photoUrl, price } }: Props) => {
     const cartContext = useCart();
 
     function handleDeleteFromCart() {
@@ -16,7 +15,7 @@ function MenuCartItem({ product, product: { name, photoUrl, price } }: Props) {
     }
 
     return (
-        <MenuItem h='130px' data-testid='cartItem'>
+        <>
             <Image
                 boxSize={'80px'}
                 borderRadius={'lg'}
@@ -50,8 +49,8 @@ function MenuCartItem({ product, product: { name, photoUrl, price } }: Props) {
                     </chakra.a>
                 </Flex>
             </Flex>
-        </MenuItem>
+        </>
     );
-}
+};
 
-export default MenuCartItem;
+export default CartItemInformation;
